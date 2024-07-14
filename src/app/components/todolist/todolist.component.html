@@ -1,0 +1,17 @@
+<input type="text" [(ngModel)]="keyWord" (keyup)="doAdd($event)">
+<hr>
+<h3>代辦事項</h3>
+<ul>
+    <li *ngFor="let item of todoList; let i = index;" [hidden]="item.stayus == 1">
+        
+        <input type="checkbox" [(ngModel)]="item.stayus"> {{item.title}} <button (click)="del(i)">X</button> 
+    </li>
+</ul>
+
+<h3>完成事項</h3>
+<ul>
+    <li *ngFor="let item of todoList; let i = index;" [hidden]="item.stayus == 0">
+        
+        <input type="checkbox" [(ngModel)]="item.stayus"> {{item.title}} <button (click)="del(i)">X</button> 
+    </li>
+</ul>

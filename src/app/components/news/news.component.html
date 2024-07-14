@@ -1,0 +1,50 @@
+<app-header></app-header>
+<h1>{{title}} </h1>
+<p>{{msg}} </p>
+<p>{{userName}} </p>
+<p>{{student}} </p>
+<p> {{message}}</p>
+<hr>
+<div [title]="student" >動態綁定</div>
+<h1>綁定ＨＴＭＬ</h1>
+<span [innerHTML]="content"></span>
+<hr>
+
+<h1>數據循環</h1>
+<ol>
+    <li *ngFor="let i of arr">{{i}}</li>
+</ol>
+
+<hr>
+<h1>引入圖片</h1>
+{{peopleInfo.userName}}
+姓名：<input type="text" [(ngModel)]="peopleInfo.userName">
+<app-home></app-home>
+
+<hr>
+
+<h2>get傳值</h2>
+<a [routerLink]="['/newscontent']">newscontent</a>
+
+<ul>
+    <li *ngFor="let item of listt; let key = index;">
+        
+        <a [routerLink]="['/newscontent']" [queryParams]="{aid:key}">{{key}}--{{item}}</a>
+    </li>
+</ul>
+
+<h2>動態傳值</h2>
+<ul>
+    <li *ngFor="let item of listt; let key = index;">
+        
+        <a [routerLink]="['/newscontent', key]" >{{key}}--{{item}}</a>
+    </li>
+</ul>
+
+<h2>js路由跳轉</h2>
+<button (click)="goRouter()">js路由跳轉</button>
+
+<h2>js get路由跳轉</h2>
+<button (click)="getRouter()">get路由跳轉</button>
+
+

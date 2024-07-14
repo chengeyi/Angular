@@ -1,0 +1,83 @@
+<h1>我是首頁組件</h1>
+<img src="assets/img/01.png" alt="Image">
+<hr>
+<!-- 取得index -->
+<ul>
+    <li *ngFor="let item of list; let i = index;">{{i}}---{{item.title}}</li>
+</ul>
+<hr>
+<h1>ngIf</h1>
+
+<div *ngIf="flag">
+    ddddd
+</div>
+<div *ngIf="!flag">
+    aaaaa
+</div>
+
+<ul>
+    <li *ngFor="let item of list; let i = index;">
+        
+        <span *ngIf="i === 1" class="red"> 
+            {{i}}---{{item.title}}
+        </span>
+
+        <span *ngIf="i != 1">
+            {{i}}---{{item.title}}
+        </span>
+    </li>
+</ul>
+
+<hr>
+<h1>ngSwitch</h1>
+<span [ngSwitch]="orderStatus">
+    <p *ngSwitchCase="1">完成</p>
+    <p *ngSwitchCase="2">確認</p>
+    <p *ngSwitchDefault>無效</p>
+</span>
+<hr>
+<h1>屬性[ngClass] [ngStyle]</h1>
+<div [ngClass]="{'red':true,'blue': false}">
+    ngClass
+</div>
+<div [ngClass]="{'blue':flag, 'red': !flag}">
+    ngClass
+</div>
+
+<strong>循環數組 第一個樣式為red</strong>
+<ul>
+    <li *ngFor="let item of list; let i = index;" [ngClass]="{'red': i ===0, 'blue': i ===1}">
+        {{i}}---{{item.title}}
+    </li>
+</ul>
+<hr>
+<strong>ngStyle</strong>
+<p [ngStyle]="{'color': atttr}">ngStyle</p>
+<hr>
+<h1>管道</h1>
+{{today | date: 'yyyy-MM-dd'}}
+<hr>
+<h1>事件</h1>
+<button (click)="run()">點擊事件</button>
+<button (click)="getData()">獲取數據</button>
+<button (click)="setData()">改變數據</button>
+<p>{{title}}</p>
+<hr>
+<h1>表單事件</h1>
+<input (keydown)="keydown($event)" type="text" name="" id="">
+<hr>
+<h1>雙向數據綁定 ＭＶＶＭ</h1>
+<input type="text" [(ngModel)]="keyWord">
+{{keyWord}}
+<p [innerText]="title"></p>
+
+<hr>
+<h1>父組間傳遞data給子組件</h1>
+<app-header [title]="pageTitle" [run2]="run2" [home]="this"></app-header>
+<hr>
+<h1>Rxjs處理異步</h1>
+<button (click)="getRex()">觸發異步</button>
+
+ 
+
+
